@@ -7,16 +7,17 @@ public class UIGroup : MonoBehaviour
     [SerializeField, Header("転がるオブジェクトUI")] private TMP_Text _rollingText;
     [SerializeField, Header("かじったオブジェクトUI")] private TMP_Text _gnawText;
 
-    [SerializeField]private SpawnManager _spawnManager;
+    [SerializeField] private SpawnManager _spawnManager;
+    [SerializeField] private Player _player;
     private void Awake()
     {
         _spawnManager
-            .RollingReactiveProperty.
-            Subscribe(x => RollingTextUpdate(x));
+            ?.RollingReactiveProperty
+            ?.Subscribe(x => RollingTextUpdate(x));
 
-        _spawnManager
-           .GnawReactiveProperty.
-           Subscribe(x => GnawTextUpdate(x));
+        _player
+           ?.GnawReactiveProperty
+           ?.Subscribe(x => GnawTextUpdate(x));
     }
 
     /// <summary>
