@@ -1,3 +1,4 @@
+using Sound;
 using UniRx;
 using UnityEngine;
 
@@ -10,6 +11,12 @@ public class Player : MonoBehaviour
     public IReadOnlyReactiveProperty<int> GnawReactiveProperty => _gnawReactiveProperty;
     [SerializeField, Header("êiÇ›ë¨ìx")]
     private float _speed;
+
+    private void Awake()
+    {
+        SCR_SoundManager.instance.PlayBGM(BGM_Type.TITLE);
+        SCR_SoundManager.instance.SetVolumeBGM(0.4f);
+    }
     private void Update()
     {
         if(Input.GetKey(KeyCode.A))
@@ -26,7 +33,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void GnawObjCount()
     {
-        Debug.Log("Add");
+        
         _gnawReactiveProperty.Value += 1;
     }
 }

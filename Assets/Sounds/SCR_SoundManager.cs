@@ -18,16 +18,19 @@ namespace Sound
     /// <summary>
     /// Œø‰Ê‰¹ enum
     /// </summary>
-    public enum SE_Type
+    public enum SE_EatType
     {
-        GameStart = 0,
         KUUU,
         KITAKITA,
-        KUWANAITO,
-        MIKAKU,
         UNME,
         KIMOCHII,
+    }
+    public enum SE_Type
+    {
+        GameStart,
         TimeUp,
+        KUWANAITO,
+        MIKAKU,
     }
 
     public class SCR_SoundManager : MonoBehaviour
@@ -94,7 +97,7 @@ namespace Sound
         /// </summary>
         /// <param SE‚ÌŽí—Þ ="seType"></param>
         /// <param ƒ{ƒŠƒ…[ƒ€ ="vol"></param>
-        public void PlaySE(SE_Type seType, float vol = 1.0f)
+        public void PlaySE(SE_EatType seType, float vol = 1.0f)
         {
             int index = (int)seType;
             if (index < 0 || seClips.Length <= index)//“o˜^”ÍˆÍŠO‚Ìê‡‚Íˆ—‚µ‚È‚¢

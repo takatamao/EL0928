@@ -9,6 +9,7 @@ public class UIGroup : MonoBehaviour
 
     [SerializeField] private SpawnManager _spawnManager;
     [SerializeField] private Player _player;
+    [SerializeField,Header("UI")] private GameObject _gameObject;
     private void Awake()
     {
         _spawnManager
@@ -26,6 +27,7 @@ public class UIGroup : MonoBehaviour
     private void RollingTextUpdate(int num)
     {
         _rollingText.text = num.ToString();
+
     }
 
     /// <summary>

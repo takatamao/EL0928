@@ -119,6 +119,7 @@ MonoBehaviour:
   _rollingText: {fileID: 6420961892273676479}
   _gnawText: {fileID: 6623672126563464371}
   _spawnManager: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!1 &857088853743848396
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,11 +19,15 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField, Header("アップル生成待ち時間")] private int _spawnTime;
 
+    [SerializeField, Header("ゲームオーバーまでの時間")] private int _gameOverTime;
+
+    [SerializeField, Header("Canvasゲームオーバー時")] private GameObject objectCanvas;
     private bool _isSpawn;
     private async void Start()
     {
         //生成フラグを変える
         _isSpawn = _rollingReactiveProperty.Value > 0;
+        objectCanvas.SetActive(false);
         RollingObjSpawn();
     }
 
@@ -46,6 +50,7 @@ public class SpawnManager : MonoBehaviour
 
             _isSpawn = _rollingReactiveProperty.Value > 0 ? true : false;
         }
-        await UniTask.Delay(TimeSpan.FromSeconds(_spawnTime));
+        await UniTask.Delay(TimeSpan.FromSeconds(_gameOverTime));
+        objectCanvas.SetActive(true);
     }
 }
