@@ -6,8 +6,7 @@ public class apple : VegeBase
     {
         Debug.Log("‚ ‚½‚Á‚½");
         Destroy(this.gameObject);
-        _targetObject=collision.gameObject;
-        _targetObject?.GetComponent<Player>().GnawObjCount();
+
         //ƒ|ƒCƒ“ƒg‰ÁZ‚Ìˆ—
     }
 }
