@@ -44,5 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7dc7873e066f848b2b8085ef2e0417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appleObject: {fileID: 6357752007765227665, guid: 437fc55d9b814e94a9d6f9ee2fa40a76, type: 3}
-  _spawnTime: 1
+  appleObject: {fileID: 0}

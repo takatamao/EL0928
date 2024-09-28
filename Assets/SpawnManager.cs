@@ -1,5 +1,6 @@
 using UnityEngine;
 using UniRx;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using System;
 
@@ -14,6 +15,11 @@ public class SpawnManager : MonoBehaviour
     // 監視される部分を公開
     public IReadOnlyReactiveProperty<int> RollingReactiveProperty => _rollingReactiveProperty;
 
+    // 変数版Subject かじった数
+    private ReactiveProperty<int> _gnawReactiveProperty = new ReactiveProperty<int>(30);
+
+    // 監視される部分を公開
+    public IReadOnlyReactiveProperty<int> GnawReactiveProperty => _gnawReactiveProperty;
 
     [SerializeField, Header("3Dのオブジェクト")] private GameObject appleObject;
 
@@ -40,12 +46,7 @@ public class SpawnManager : MonoBehaviour
         {
             // 1秒後にログを出力
             await UniTask.Delay(TimeSpan.FromSeconds(_spawnTime));
-            
-          
-            GameObject obj= Instantiate(appleObject, this.transform);
-            float ztransform = UnityEngine.Random.Range(0, 6);
-            obj.transform.position = new Vector3(obj.transform.position.x, this.transform.position.y, this.transform.position.z + ztransform);
-            
+            Instantiate(appleObject);
             _rollingReactiveProperty.Value -= 1;
 
             _isSpawn = _rollingReactiveProperty.Value > 0 ? true : false;
